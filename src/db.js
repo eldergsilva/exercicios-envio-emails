@@ -1,6 +1,6 @@
 require('dotenv').config(); 
 
-const pg = require('knex')({
+const knex = require('knex')({
   client: 'pg',
   connection: {   
     host: process.env.DB_HOST || 'localhost',
@@ -11,3 +11,5 @@ const pg = require('knex')({
     ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
   },
 });
+
+module.exports = knex;
